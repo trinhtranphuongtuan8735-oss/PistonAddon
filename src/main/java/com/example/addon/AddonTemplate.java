@@ -7,7 +7,7 @@ import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Addon extends MeteorAddon {
+public class AddonTemplate extends MeteorAddon {
     public static final Logger LOG = LoggerFactory.getLogger("Addon");
     public static final Category CATEGORY = new Category("PistonPvP");
 
