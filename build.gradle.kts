@@ -8,19 +8,20 @@ group = "com.example.addon"
 
 repositories {
     mavenCentral()
-    // Khai báo Jitpack ở trên cùng để ưu tiên tìm kiếm
+    
+    // Domain Maven chính thức hiện tại của Meteor
     maven {
-        name = "jitpack"
-        url = uri("https://jitpack.io")
+        name = "meteor-maven-releases"
+        url = uri("https://maven.meteordev.org/releases")
     }
+    maven {
+        name = "meteor-maven-snapshots"
+        url = uri("https://maven.meteordev.org/snapshots")
+    }
+    
     maven {
         name = "fabric"
         url = uri("https://maven.fabricmc.net/")
-    }
-    // Maven chính chủ của Meteor (dự phòng)
-    maven {
-        name = "meteor-dev"
-        url = uri("https://maven.meteordevelopment.meteorclient.com/releases")
     }
 }
 
@@ -29,11 +30,8 @@ dependencies {
     mappings("net.fabricmc:yarn:1.21.1+build.1:v2")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.102.0+1.21.1")
 
-    // Cấu hình dependency Meteor qua Jitpack chuẩn format
-    // Format Jitpack: com.github.User:Repo:Tag/Commit
-    modCompileOnly("com.github.MeteorDevelopment:meteor-client:0.5.8") {
-        isTransitive = false
-    }
+    // Bản Meteor Client chuẩn cho Minecraft 1.21.1
+    modCompileOnly("meteordevelopment:meteor-client:0.5.9")
 }
 
 tasks.withType<JavaCompile> {
