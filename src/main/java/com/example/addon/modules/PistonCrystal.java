@@ -1,12 +1,11 @@
 package com.example.addon.modules;
 
-import com.example.addon.Addon;
+import com.example.addon.AddonTemplate;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.player.FindItemResult;
 import meteordevelopment.meteorclient.utils.player.InvUtils;
-import meteordevelopment.meteorclient.utils.player.Rotations;
 import meteordevelopment.meteorclient.utils.world.BlockUtils;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.decoration.EndCrystalEntity;
@@ -59,7 +58,7 @@ public class PistonCrystal extends Module {
     private int timer = 0;
 
     public PistonCrystal() {
-        super(Addon.CATEGORY, "piston-crystal", "Combo Piston Crystal PvP 1.21.1.");
+        super(AddonTemplate.CATEGORY, "piston-crystal", "Combo Piston Crystal PvP 1.21.1.");
     }
 
     @Override
@@ -134,10 +133,6 @@ public class PistonCrystal extends Module {
             case BREAK_CRYSTAL -> {
                 for (var entity : mc.world.getEntities()) {
                     if (entity instanceof EndCrystalEntity crystalEntity && crystalEntity.getBlockPos().equals(crystalPos)) {
-                        if (rotate.get()) {
-                            Rotations.rotate(Rotations.getYaw(crystalEntity.getPos()), Rotations.getPitch(crystalEntity.getPos()));
-                        }
-
                         mc.interactionManager.attackEntity(mc.player, crystalEntity);
                         mc.player.swingHand(Hand.MAIN_HAND);
 
