@@ -18,7 +18,7 @@ public class CommandExample extends Command {
 
     @Override
     public void build(LiteralArgumentBuilder<ClientSuggestionProvider> builder) {
-        builder.executes(context -> {
+        builder.executes( context-> {
             info("hi");
             return SINGLE_SUCCESS;
         });
