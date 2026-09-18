@@ -9,6 +9,10 @@ group = "com.example.addon"
 repositories {
     mavenCentral()
     maven {
+        name = "jitpack"
+        url = uri("https://jitpack.io")
+    }
+    maven {
         name = "meteor-dev"
         url = uri("https://maven.meteordevelopment.meteorclient.com/releases")
     }
@@ -27,7 +31,8 @@ dependencies {
     mappings("net.fabricmc:yarn:1.21.1+build.1:v2")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.102.0+1.21.1")
 
-    modImplementation("meteordevelopment:meteor-client:0.5.8-1.21.1")
+    // Dung source Meteor Client
+    modImplementation("com.github.MeteorDevelopment:meteor-client:0.5.8")
 }
 
 tasks.withType<JavaCompile> {
