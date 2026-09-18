@@ -4,21 +4,18 @@ import com.example.addon.modules.PistonCrystal;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class AddonTemplate extends MeteorAddon {
-    public static final Logger LOG = LoggerFactory.getLogger("Addon");
-    public static final Category CATEGORY = new Category("PistonPvP");
+    public static final Category CATEGORY = new Category("Piston Addon");
 
     @Override
     public void onInitialize() {
-        LOG.info("Khoi tao PistonCrystal Addon!");
+        // Dang ky module PistonCrystal
         Modules.get().add(new PistonCrystal());
     }
 
     @Override
-    public void onRegisterCategories() {
+    public void registerCategories() {
         Modules.registerCategory(CATEGORY);
     }
 
