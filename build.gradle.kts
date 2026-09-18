@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.7.4"
+    id("fabric-loom") version "1.7-SNAPSHOT"
     id("maven-publish")
 }
 
@@ -9,16 +9,16 @@ group = "com.example.addon"
 repositories {
     mavenCentral()
     maven {
+        name = "fabric"
+        url = uri("https://maven.fabricmc.net/")
+    }
+    maven {
         name = "meteor-dev"
         url = uri("https://maven.meteordevelopment.meteorclient.com/releases")
     }
     maven {
         name = "meteor-snapshots"
         url = uri("https://maven.meteordevelopment.meteorclient.com/snapshots")
-    }
-    maven {
-        name = "fabric"
-        url = uri("https://maven.fabricmc.net/")
     }
 }
 
